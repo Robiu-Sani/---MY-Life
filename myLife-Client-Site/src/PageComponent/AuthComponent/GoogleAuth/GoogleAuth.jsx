@@ -1,8 +1,17 @@
+import { useContext } from "react";
 import { AiFillGoogleCircle } from "react-icons/ai";
+import { AuthContext } from "../../../RootComponent/context/Context";
 
 export default function GoogleAuth() {
+  const { LoginWithGoogle } = useContext(AuthContext);
   const handleGoogleAuth = () => {
-    console.log("im click from google auth");
+    LoginWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .then((err) => {
+        console.log(err);
+      });
   };
   return (
     <AiFillGoogleCircle

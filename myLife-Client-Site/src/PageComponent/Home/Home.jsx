@@ -1,11 +1,6 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../RootComponent/context/Context";
 
 export default function Home() {
-  const { test } = useContext(AuthContext);
-  console.log(test);
-
   return (
     <div className="container h-full mx-auto pt-[0px] p-2  pb-5 sm:pt-2 flex justify-center items-center">
       <div className="mb-[60px] flex flex-col justify-center items-center">

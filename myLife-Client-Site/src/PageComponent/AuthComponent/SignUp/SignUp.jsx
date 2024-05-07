@@ -5,10 +5,13 @@ import GitHubAuth from "../GitHubAuth.jsx/GitHubAuth";
 import FaceBookAuth from "../FaceBookAuth/FaceBookAuth";
 import TwitorAuth from "../TwitorAuth/TwitorAuth";
 import logPic from "../../../images/login.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../RootComponent/context/Context";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 export default function SignUp() {
   const [showPAssword, setShowPassWord] = useState(false);
+  const { createUserByEmail } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -17,8 +20,14 @@ export default function SignUp() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    reset();
+    createUserByEmail(data.email, data.password)
+      .then((result) => {
+        console.log(result.user);
+        reset();
+      })
+      .then((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -115,9 +124,13 @@ export default function SignUp() {
           <div className="mb-1 relative">
             <p
               onClick={() => setShowPassWord(!showPAssword)}
-              className="absolute right-2 top-10 cursor-pointer"
+              className="absolute right-3 top-11 cursor-pointer"
             >
-              a
+              {showPAssword ? (
+                <FaEye className="text-xl" />
+              ) : (
+                <FaEyeSlash className="text-xl" />
+              )}
             </p>
             <label
               className="block text-sm font-bold mb-2 fontstyle"
