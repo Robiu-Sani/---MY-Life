@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  transition: 0.5s;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.active {
+  color: orange !important;
+  font-weight: bold;
+  background: transparent !important;
+}
+.customBg {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.blurBg {
+  background: rgba(133, 183, 189, 0.199);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
