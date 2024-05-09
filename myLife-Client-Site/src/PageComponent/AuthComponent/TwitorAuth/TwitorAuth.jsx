@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { AuthContext } from "../../../RootComponent/context/Context";
 export default function TwitorAuth() {
+  const { LoginWithTwitter } = useContext(AuthContext);
   const handleTwiterAuth = () => {
-    console.log("click from twiter auth");
+    LoginWithTwitter()
+      .then((result) => console.log(result.user))
+      .then((err) => console.log(err));
   };
   return (
     <FaSquareXTwitter

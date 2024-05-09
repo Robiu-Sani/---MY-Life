@@ -11,6 +11,8 @@ import Login from "../../PageComponent/AuthComponent/Login/Login";
 import SignUp from "../../PageComponent/AuthComponent/SignUp/SignUp";
 import Routine from "../../PageComponent/RouTine/Routine";
 import Blog from "../../PageComponent/Blog/Blog";
+import Profile from "../../PageComponent/profile/Profile";
+import PrivateRoute from "../privateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -38,25 +40,45 @@ const router = createBrowserRouter([
         path: "/signUp",
         element: <SignUp></SignUp>,
       },
-      // {
-      //   path: "/auth",
-      //   element: <Auth></Auth>,
-      // },
       {
         path: "/note",
-        element: <Note></Note>,
+        element: (
+          <PrivateRoute>
+            <Note></Note>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/calender",
-        element: <Calender></Calender>,
+        element: (
+          <PrivateRoute>
+            <Calender></Calender>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/routine",
-        element: <Routine></Routine>,
+        element: (
+          <PrivateRoute>
+            <Routine></Routine>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/blog",
-        element: <Blog></Blog>,
+        element: (
+          <PrivateRoute>
+            <Blog></Blog>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
       },
     ],
   },

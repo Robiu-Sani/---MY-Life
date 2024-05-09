@@ -23,3 +23,18 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
+.transBg {
+  background: transparent !important;
+}
+.customCalender {
+  width: 100% !important;
+  border: 0 !important;
+}
+.scrollShow::-webkit-scrollbar {
+  display: block;
+  background: rgba(94, 214, 230, 0.322);
+}
+.scrollShow::-webkit-scrollbar-thumb {
+  background: rgba(0, 247, 255, 0.541);
+  border-radius: 25px;
+}
